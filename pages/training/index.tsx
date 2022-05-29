@@ -7,11 +7,11 @@ import { QuestionCard } from "../../components/QuestionCard";
 import { useUser } from "../../provider/UserProvider";
 import { GetServerSideProps } from "next";
 import { Question } from "../../dataSource/questions";
-import { QuestionsResponse } from "../../server/types";
 import { TrainingResultDialog } from "./components/TrainingResultDialog";
 import { Toast } from "../../components/Toast";
 import { statusCodeClassfication } from "../../constants/statusCodeClassification";
 import { useTraining } from "../../hooks/useTraining";
+import { createQuestions } from "../../server/utils/createQuestions";
 
 type TrainingProps = {
   questions?: Question[];
@@ -36,11 +36,12 @@ const Training: NextPageWithLayout = ({
   const statusCodeColoring = () => {
     const firstChar =
       displayingQuestion.displayingQuestion?.statusCode.split("")[0];
+
     switch (firstChar) {
       case statusCodeClassfication.information:
         return styles.information;
       case statusCodeClassfication.success:
-        return styles.succeredirectss;
+        return styles.success;
       case statusCodeClassfication.redirect:
         return styles.redirect;
       case statusCodeClassfication.clientError:
@@ -111,14 +112,7 @@ Training.getLayout = (page: React.ReactNode) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  try {
-    const response: QuestionsResponse = await fetch(
-      "http://localhost:3000/trainingQuestions"
-    ).then((res) => res.json());
-    return { props: response };
-  } catch (error) {
-    return { props: {} };
-  }
+  return { props: createQuestions() };
 };
 
 export default Training;

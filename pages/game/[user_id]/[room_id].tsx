@@ -12,6 +12,7 @@ import { GameResultDialog } from "../components/GameResultDialog";
 import { Toast } from "../../../components/Toast";
 import { useGame } from "../../../hooks/useGame";
 import { statusCodeClassfication } from "../../../constants/statusCodeClassification";
+import { getBaseURL } from "../../../utils/url";
 
 type GameProps = {
   // 表示するステータスコードカードのリスト
@@ -49,7 +50,7 @@ const Game: NextPageWithLayout = ({
       case statusCodeClassfication.information:
         return styles.information;
       case statusCodeClassfication.success:
-        return styles.succeredirectss;
+        return styles.success;
       case statusCodeClassfication.redirect:
         return styles.redirect;
       case statusCodeClassfication.clientError:
@@ -123,18 +124,18 @@ Game.getLayout = (page: React.ReactNode) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { room_id, user_id } = context.query;
   try {
+    const baseURL = getBaseURL(context);
     const response: QuestionsResponse & { playingUsers: PlayingUser[] } =
-      await fetch(`http://localhost:3000/questions/${user_id}/${room_id}`).then(
-        (res) => {
-          if (res.ok) {
-            return res.json();
-          } else {
-            throw new Error();
-          }
+      await fetch(`${baseURL}/questions/${user_id}/${room_id}`).then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error();
         }
-      );
+      });
     return { props: response };
   } catch (e) {
+    console.log(e);
     context.res.writeHead(302, { Location: "/roomSelect" });
     context.res.end();
     return {

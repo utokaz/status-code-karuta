@@ -15,6 +15,8 @@ import { useUser } from "../../provider/UserProvider";
 import { createUniqueStr } from "../../utils/createUniqueStr";
 import { DefineRoomLimit } from "./components/DefineRoomLimit";
 import { PlusIcon, PencilIcon } from "@heroicons/react/outline";
+import { gameGroup } from "../../server/index";
+import { getBaseURL } from "../../utils/url";
 
 const RoomSelect: NextPageWithLayout = ({ rooms }: WaitingRoomsResponse) => {
   const [roomState, setRoomState] = useState(rooms);
@@ -199,9 +201,10 @@ RoomSelect.getLayout = (page: React.ReactNode) => {
 export default RoomSelect;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  const baseURL = getBaseURL(context);
   try {
     const res: WaitingRoomsResponse = await fetch(
-      `http://localhost:3000/waitingRooms`
+      `${baseURL}/waitingRooms`
     ).then((res) => res.json());
 
     return { props: res };

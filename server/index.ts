@@ -17,7 +17,7 @@ const port = parseInt(process.env.PORT || "3000", 10);
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle: NextApiHandler = app.getRequestHandler();
-
+// ゲームのルーム状態
 export let gameGroup: GameGroupType[] = [];
 
 app.prepare().then(async () => {
@@ -85,7 +85,6 @@ app.prepare().then(async () => {
         break;
       case "ready":
       case "waiting":
-        console.log("イベント発行", roomId);
         if (roomId) {
           io.to(roomId).emit("roomStatus", {
             status: roomStatus,

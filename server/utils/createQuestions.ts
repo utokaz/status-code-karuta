@@ -1,4 +1,4 @@
-import { Question, questionDataSource } from '../../dataSource/questions';
+import { Question, questionDataSource } from "../../dataSource/questions";
 
 const questionLimitCount = 18;
 

@@ -1,8 +1,8 @@
-import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
-import { Question } from '../dataSource/questions';
-import { useWS } from '../provider/WSProvider';
-import { GameStateNotification, PlayingUser } from '../server/types';
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import { Question } from "../dataSource/questions";
+import { useWS } from "../provider/WSProvider";
+import { GameStateNotification, PlayingUser } from "../server/types";
 
 type GameState = {
   displayPosition: number;
@@ -43,7 +43,7 @@ export const useGame: (
   useEffect(() => {
     const clone = ws.current;
     ws.current?.on(
-      'update',
+      "update",
       ({ gameStatus }: { gameStatus: GameStateNotification }) => {
         if (displayOrderQuestions && displayOrderQuestions.length > 0) {
           const next = displayOrderQuestions[gameStatus.displayPosition];
@@ -75,32 +75,38 @@ export const useGame: (
         }
       }
     );
-    ws.current?.on('gameOver', () => {
+    ws.current?.on("gameOver", () => {
       setDialogOpen(true);
     });
 
-    router.events.on('routeChangeStart', handleChangeRoute);
+    ws.current?.on("disconnect", () => {
+      router.replace("/roomSelect");
+    });
+
+    router.events.on("routeChangeStart", handleChangeRoute);
 
     return () => {
-      clone?.removeListener('update');
-      clone?.removeListener('gameOver');
-      router.events.off('routeChangeStart', handleChangeRoute);
+      clone?.removeListener("update");
+      clone?.removeListener("gameOver");
+      router.events.off("routeChangeStart", handleChangeRoute);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const answer = (answerID: number) => {
-    ws?.current?.emit('answer', {
-      answerID: answerID,
-      userId: userID,
-      roomId: roomID,
-      displayingPosition: gameState.displayPosition,
-    });
+    if (!ws.current?.disconnected) {
+      ws?.current?.emit("answer", {
+        answerID: answerID,
+        userId: userID,
+        roomId: roomID,
+        displayingPosition: gameState.displayPosition,
+      });
+    }
   };
 
   const handleChangeRoute = () => {
-    console.log('clien side cancell');
-    ws.current?.emit('cancell', {
+    console.log("clien side cancell");
+    ws.current?.emit("cancell", {
       roomId: roomID,
       userId: userID,
     });
