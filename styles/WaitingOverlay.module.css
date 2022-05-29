@@ -1,0 +1,36 @@
+.container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.exp_phrase {
+  color: #fff;
+  font-weight: bold;
+  font-size: 24px;
+  margin: 16px;
+}
+
+.close_button {
+  background-color: transparent;
+  padding: 0px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  margin: 0;
+}
+
+.close {
+  color: #fff;
+  height: 48px;
+  width: 48px;
+  margin: 0;
+}

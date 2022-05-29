@@ -1,0 +1,93 @@
+.container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: show;
+  animation-duration: 600ms;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.content {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  z-index: 10;
+  margin: 16px;
+}
+
+.number_input {
+  height: 32px;
+  font-size: 24px;
+  border-radius: 8px;
+  padding: 16px;
+  width: 120px;
+  border: 1px solid lightgray;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.number_input::-webkit-outer-spin-button,
+.number_input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.number_input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.number_control {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background-color: #edf2f7;
+  display: flex;
+  align-items: center;
+  border: none;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 24px;
+  color: #000;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 24px;
+  margin: 0;
+  color: #009999;
+}
+
+.exp {
+  margin: 0;
+}
+
+.limint_input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.limint_input > span {
+  font-weight: bold;
+}

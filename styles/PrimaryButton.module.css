@@ -1,0 +1,38 @@
+.button {
+  padding: 16px 24px 16px 24px;
+  background-color: #009999;
+  border-radius: 999px;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.secondary_button {
+  padding: 16px 24px 16px 24px;
+  background-color: gray;
+  border-radius: 999px;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+@media screen and (min-width: 1024px) {
+  .button {
+    font-size: 16px;
+  }
+  .secondary_button {
+    font-size: 16px;
+  }
+}
+
+.button:hover {
+  opacity: 0.6;
+}
+
+.secondary_button:hover {
+  opacity: 0.6;
+}

@@ -1,0 +1,83 @@
+.container {
+  background-color: #fff;
+  height: 120px;
+  width: 90%;
+  border-radius: 16px;
+  box-shadow: 0 0 8px gray;
+  cursor: pointer;
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+  position: relative;
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    background-color: #fff;
+    height: 120px;
+    width: 600px;
+    border-radius: 16px;
+    box-shadow: 0 0 8px gray;
+    cursor: pointer;
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    position: relative;
+  }
+}
+
+.container:hover {
+  opacity: 0.6;
+}
+
+.room_id_phrase {
+  margin: 0;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.emoji {
+  display: inline-flex;
+  justify-content: center;
+  color: #000;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 1.05em;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  animation-name: shake;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+
+.icon {
+  width: 54px;
+  height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  background-color: #dff0f0;
+  border: 1px solid lightgray;
+  border-radius: 999px;
+}
+
+.icons_container {
+  display: flex;
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  gap: 16px;
+}
+
+.room_limit_badge {
+  background-color: #dff0f0;
+  display: inline-block;
+  border-radius: 8px;
+  padding: 4px 8px 4px 8px;
+  border: 1px solid lightgray;
+  color: #000;
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+}

@@ -1,0 +1,58 @@
+.container {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: fadeIn;
+  animation-duration: 300ms;
+  animation-iteration-count: 1;
+}
+
+.dialog {
+  background-color: #fff;
+  height: 240px;
+  width: 420px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+  padding: 16px;
+}
+
+.inner_container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  gap: 16px;
+}
+
+.title {
+  font-weight: bold;
+  margin: 0;
+  font-size: 24px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.user_row {
+  margin: 0;
+}
+
+.user_row {
+  font-size: 24px;
+}

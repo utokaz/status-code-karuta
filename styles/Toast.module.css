@@ -1,0 +1,41 @@
+.container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 46px;
+  color: #fff;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  animation-name: show;
+  animation-duration: 2000ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  width: 400px;
+}
+
+.positive_container_color {
+  background-color: #009999;
+}
+
+.negative_container_color {
+  background-color: #f699cd;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    bottom: 0px;
+  }
+  50% {
+    opacity: 1;
+    bottom: 26px;
+  }
+  100% {
+    opacity: 0;
+    bottom: 0px;
+  }
+}
