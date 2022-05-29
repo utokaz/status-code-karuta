@@ -12,6 +12,7 @@
   animation-duration: 600ms;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
+  opacity: 0;
 }
 
 .icon {

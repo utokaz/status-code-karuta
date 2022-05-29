@@ -1,23 +1,24 @@
-import type { GetServerSideProps } from 'next';
-import { QuestionCard } from '../../../components/QuestionCard';
-import { StatusCodeCard } from '../../../components/StatusCodeCard';
-import styles from '../../../styles/Game.module.css';
-import { UserStatusRow } from '../../../components/UserStatusRow';
-import { useRouter } from 'next/router';
-import { MainLayout } from '../../../components/MainLayout';
-import { NextPageWithLayout } from '../../_app';
-import { Question } from '../../../dataSource/questions';
-import { PlayingUser, QuestionsResponse } from '../../../server/types';
-import { GameResultDialog } from '../components/GameResultDialog';
-import { Toast } from '../../../components/Toast';
-import { useGame } from '../../../hooks/useGame';
+import type { GetServerSideProps } from "next";
+import { QuestionCard } from "../../../components/QuestionCard";
+import { StatusCodeCard } from "../../../components/StatusCodeCard";
+import styles from "../../../styles/Game.module.css";
+import { UserStatusRow } from "../../../components/UserStatusRow";
+import { useRouter } from "next/router";
+import { MainLayout } from "../../../components/MainLayout";
+import { NextPageWithLayout } from "../../_app";
+import { Question } from "../../../dataSource/questions";
+import { PlayingUser, QuestionsResponse } from "../../../server/types";
+import { GameResultDialog } from "../components/GameResultDialog";
+import { Toast } from "../../../components/Toast";
+import { useGame } from "../../../hooks/useGame";
+import { statusCodeClassfication } from "../../../constants/statusCodeClassification";
 
 type GameProps = {
   // 表示するステータスコードカードのリスト
   questions?: Question[];
   // 出題される問題のリスト
   displayOrderQuestions?: Question[];
-
+  // 参加プレイヤー
   playingUsers?: PlayingUser[];
 };
 
@@ -41,19 +42,19 @@ const Game: NextPageWithLayout = ({
   });
   const statusCodeColoring = () => {
     if (gameState.displayingQuestion === undefined) {
-      return '';
+      return "";
     }
-    const [firstChar] = gameState.displayingQuestion.statusCode.split('');
+    const [firstChar] = gameState.displayingQuestion.statusCode.split("");
     switch (firstChar) {
-      case '1':
+      case statusCodeClassfication.information:
         return styles.information;
-      case '2':
-        return styles.success;
-      case '3':
+      case statusCodeClassfication.success:
+        return styles.succeredirectss;
+      case statusCodeClassfication.redirect:
         return styles.redirect;
-      case '4':
+      case statusCodeClassfication.clientError:
         return styles.client_error;
-      case '5':
+      case statusCodeClassfication.serverError:
         return styles.server_error;
     }
   };
@@ -68,7 +69,7 @@ const Game: NextPageWithLayout = ({
             displayOrderQuestions?.length
           }`}</p>
           <QuestionCard
-            questionText={gameState.displayingQuestion?.questionText ?? ''}
+            questionText={gameState.displayingQuestion?.questionText ?? ""}
           />
         </div>
         {/** アニメーション参考https://codesandbox.io/s/animesiyonnojieshuo-qw9us?from-embed=&file=/src/App.tsx */}
@@ -108,7 +109,7 @@ const Game: NextPageWithLayout = ({
           isShow={isWrongCountToastOpen}
           text="お手つき！"
           onClose={() => setIsWrongCountToastOpen(false)}
-          type={'negative'}
+          type={"negative"}
         />
       )}
     </div>
@@ -134,7 +135,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       );
     return { props: response };
   } catch (e) {
-    context.res.writeHead(302, { Location: '/roomSelect' });
+    context.res.writeHead(302, { Location: "/roomSelect" });
     context.res.end();
     return {
       props: {},

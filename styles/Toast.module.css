@@ -14,7 +14,13 @@
   animation-duration: 2000ms;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
-  width: 400px;
+  width: 300px;
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    width: 400px;
+  }
 }
 
 .positive_container_color {
