@@ -2,14 +2,15 @@
   display: flex;
   align-items: center;
   border-radius: 16px;
-  gap: 10px;
+  gap: 24px;
   background-color: #fff;
   box-shadow: 0 0 4px gray;
-  width: 48%;
 }
 
-.training_width {
-  width: 100%;
+@media screen and (min-width: 1024px) {
+  .container {
+    width: 48%;
+  }
 }
 
 .user_name {
@@ -23,7 +24,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 126px;
 }
 
 .card_status > p {

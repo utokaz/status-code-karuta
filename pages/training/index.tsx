@@ -86,7 +86,6 @@ const Training: NextPageWithLayout = ({
           iconType={user?.iconType ?? "dolphin"}
           wrongHitCount={displayingQuestion.wrongHitCount}
           getCardCount={displayingQuestion.getCardCount}
-          isTraining
         />
       </div>
       {resultDialogOpen && (

@@ -1,13 +1,12 @@
-import styles from '../styles/UserStatusRow.module.css';
-import { Icons, IconType } from '../pages/userRegister/components/IconCard';
-import { HTMLAttributes, useEffect, useRef, useState } from 'react';
+import styles from "../styles/UserStatusRow.module.css";
+import { Icons, IconType } from "../pages/userRegister/components/IconCard";
+import { useEffect, useRef } from "react";
 
 type UserStatusRowProps = {
   userName: string;
   iconType: IconType;
   getCardCount: number;
   wrongHitCount: number;
-  isTraining?: boolean;
 };
 
 export const UserStatusRow = ({
@@ -15,7 +14,6 @@ export const UserStatusRow = ({
   iconType,
   getCardCount,
   wrongHitCount,
-  isTraining = false,
 }: UserStatusRowProps) => {
   const emojiRef = useRef<HTMLSpanElement | null>(null);
   useEffect(() => {
@@ -32,9 +30,8 @@ export const UserStatusRow = ({
       clearTimeout(timer);
     };
   }, [getCardCount]);
-  const trainingStyles = isTraining ? styles.training_width : '';
   return (
-    <div className={`${styles.container} ${trainingStyles}`}>
+    <div className={styles.container}>
       <div className={styles.emoji_container}>
         {iconType && (
           <span className={styles.emoji} ref={emojiRef}>
