@@ -1,5 +1,8 @@
 import styles from "../../styles/UserRegister.module.css";
-import { IconCard, Icons } from "./components/IconCard";
+import {
+  IconCard,
+  Icons,
+} from "../../feature/userRegister/components/IconCard";
 import { TextInput } from "../../components/TextInput";
 import React, { useRef, useState } from "react";
 import { MainLayout } from "../../components/MainLayout";

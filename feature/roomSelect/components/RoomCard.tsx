@@ -1,8 +1,5 @@
 import { HTMLAttributes } from "react";
-import {
-  IconType,
-  Icons,
-} from "../../../pages/userRegister/components/IconCard";
+import { IconType, Icons } from "../../userRegister/components/IconCard";
 import { PlayingUser } from "../../../server/types";
 import styles from "../../../styles/RoomCard.module.css";
 import { RoomCardUserIcon } from "./RoomCardUserIcon";

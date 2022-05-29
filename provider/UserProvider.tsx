@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useState } from 'react';
-import { IconType } from '../pages/userRegister/components/IconCard';
+import React, { createContext, useContext, useState } from "react";
+import { IconType } from "../feature/userRegister/components/IconCard";
 
 type UserProviderProps = {
   children: React.ReactNode;
@@ -32,7 +32,7 @@ export const useUser = () => {
   const ctx = useContext(context);
 
   if (!ctx) {
-    throw new Error('useUser must be used whithin UserProvider');
+    throw new Error("useUser must be used whithin UserProvider");
   }
   return ctx;
 };

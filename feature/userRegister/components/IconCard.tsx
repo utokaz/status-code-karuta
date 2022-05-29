@@ -1,14 +1,14 @@
-import styles from '../../../styles/IconCard.module.css';
+import styles from "../../../styles/IconCard.module.css";
 
 export const Icons = {
-  dolphin: '🐬',
-  dog: '🐕',
-  pig: '🐷',
-  unicorn: '🦄',
-  elephant: '🐘',
-  sushi: '🍣',
-  dinausor: '🦖',
-  thinking: '🤔',
+  dolphin: "🐬",
+  dog: "🐕",
+  pig: "🐷",
+  unicorn: "🦄",
+  elephant: "🐘",
+  sushi: "🍣",
+  dinausor: "🦖",
+  thinking: "🤔",
 } as const;
 
 export type IconType = keyof typeof Icons;
@@ -20,7 +20,7 @@ type IconCardProps = {
 };
 
 export const IconCard = ({ type, isSelecting, onSelected }: IconCardProps) => {
-  const selectingStyle = isSelecting ? styles.selecting : '';
+  const selectingStyle = isSelecting ? styles.selecting : "";
   return (
     <div
       className={`${styles.contaienr} ${selectingStyle}`}
