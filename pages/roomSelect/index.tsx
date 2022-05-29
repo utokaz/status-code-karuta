@@ -15,7 +15,6 @@ import { useUser } from "../../provider/UserProvider";
 import { createUniqueStr } from "../../utils/createUniqueStr";
 import { DefineRoomLimit } from "./components/DefineRoomLimit";
 import { PlusIcon, PencilIcon } from "@heroicons/react/outline";
-import { gameGroup } from "../../server/index";
 import { getBaseURL } from "../../utils/url";
 
 const RoomSelect: NextPageWithLayout = ({ rooms }: WaitingRoomsResponse) => {
@@ -36,11 +35,11 @@ const RoomSelect: NextPageWithLayout = ({ rooms }: WaitingRoomsResponse) => {
 
   const fetchRoomsStatus = async () => {
     try {
-      const res: WaitingRoomsResponse = await fetch(
-        `http://localhost:3000/waitingRooms`
-      ).then((res) => {
-        return res.json();
-      });
+      const res: WaitingRoomsResponse = await fetch(`/waitingRooms`).then(
+        (res) => {
+          return res.json();
+        }
+      );
       setRoomState(res.rooms);
     } catch (error) {
       console.log(error);

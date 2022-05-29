@@ -4,9 +4,9 @@ import {
   useContext,
   useEffect,
   useRef,
-} from 'react';
-import { Socket, io } from 'socket.io-client';
-import { DefaultEventsMap } from 'socket.io/dist/typed-events';
+} from "react";
+import { Socket, io } from "socket.io-client";
+import { DefaultEventsMap } from "socket.io/dist/typed-events";
 
 type WSProviderProps = {
   children: React.ReactNode;
@@ -22,8 +22,8 @@ export const WSProvider = ({ children }: WSProviderProps) => {
   );
   useEffect(() => {
     if (socketRef.current === null) {
-      socketRef.current = io('/');
-      console.log('クライアント側接続', socketRef.current);
+      socketRef.current = io("/");
+      console.log("connected", socketRef.current);
     }
     return () => {
       socketRef.current?.disconnect();
@@ -40,7 +40,7 @@ export const useWS = () => {
   const ctx = useContext(context);
 
   if (!ctx) {
-    throw new Error('useWS must be used whithin WSProvider');
+    throw new Error("useWS must be used whithin WSProvider");
   }
   return ctx;
 };
