@@ -7,7 +7,7 @@ import { QuestionCard } from "../../components/QuestionCard";
 import { useUser } from "../../provider/UserProvider";
 import { GetServerSideProps } from "next";
 import { Question } from "../../dataSource/questions";
-import { TrainingResultDialog } from "./components/TrainingResultDialog";
+import { TrainingResultDialog } from "../../feature/training/components/TrainingResultDialog";
 import { Toast } from "../../components/Toast";
 import { statusCodeClassfication } from "../../constants/statusCodeClassification";
 import { useTraining } from "../../hooks/useTraining";

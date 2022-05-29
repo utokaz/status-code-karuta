@@ -8,7 +8,7 @@ import { MainLayout } from "../../../components/MainLayout";
 import { NextPageWithLayout } from "../../_app";
 import { Question } from "../../../dataSource/questions";
 import { PlayingUser, QuestionsResponse } from "../../../server/types";
-import { GameResultDialog } from "../components/GameResultDialog";
+import { GameResultDialog } from "../../../feature/game/components/GameResultDialog";
 import { Toast } from "../../../components/Toast";
 import { useGame } from "../../../hooks/useGame";
 import { statusCodeClassfication } from "../../../constants/statusCodeClassification";

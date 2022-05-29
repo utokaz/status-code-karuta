@@ -1,5 +1,5 @@
 import styles from "../styles/UserStatusRow.module.css";
-import { Icons, IconType } from "../pages/userRegister/components/IconCard";
+import { Icons, IconType } from "../feature/userRegister/components/IconCard";
 import { useEffect, useRef } from "react";
 
 type UserStatusRowProps = {
