@@ -1,0 +1,25 @@
+.icon {
+  width: 54px;
+  height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  background-color: #dff0f0;
+  border: 1px solid lightgray;
+  border-radius: 999px;
+}
+
+.tool_tip {
+  position: absolute;
+  top: 40px;
+  border: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  padding: 8px;
+  background-color: #edf2f7;
+  font-size: 16px;
+  border-radius: 4px;
+}

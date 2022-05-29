@@ -27,7 +27,7 @@
 }
 
 .container:hover {
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 .room_id_phrase {
@@ -48,18 +48,6 @@
   animation-name: shake;
   animation-duration: 1s;
   animation-iteration-count: 1;
-}
-
-.icon {
-  width: 54px;
-  height: 54px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2.5rem;
-  background-color: #dff0f0;
-  border: 1px solid lightgray;
-  border-radius: 999px;
 }
 
 .icons_container {

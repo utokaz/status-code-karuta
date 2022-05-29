@@ -151,7 +151,7 @@ const RoomSelect: NextPageWithLayout = ({ rooms }: WaitingRoomsResponse) => {
               <RoomCard
                 key={i}
                 roomId={r.roomId}
-                participatingUsers={r.participatedUsers.map((u) => u.iconType)}
+                participatingUsers={r.participatedUsers}
                 onSelected={() => onSelectedRoom(r.roomId)}
                 roomLimit={r.roomLimit}
               />

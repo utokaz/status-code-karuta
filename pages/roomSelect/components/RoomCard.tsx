@@ -3,11 +3,13 @@ import {
   IconType,
   Icons,
 } from "../../../pages/userRegister/components/IconCard";
+import { PlayingUser } from "../../../server/types";
 import styles from "../../../styles/RoomCard.module.css";
+import { RoomCardUserIcon } from "./RoomCardUserIcon";
 
 type RoomCardProps = {
   roomId: string;
-  participatingUsers: IconType[];
+  participatingUsers: PlayingUser[];
   onSelected: () => void;
   roomLimit: number;
 };
@@ -23,12 +25,8 @@ export const RoomCard = ({
       <p className={styles.room_id_phrase}>{`room id: ${roomId}`}</p>
       <span className={styles.room_limit_badge}>{`${roomLimit}人対戦`}</span>
       <div className={styles.icons_container}>
-        {participatingUsers.map((u, i) => {
-          return (
-            <div key={i} className={styles.icon}>
-              <span>{Icons[u]}</span>
-            </div>
-          );
+        {participatingUsers.map((user, i) => {
+          return <RoomCardUserIcon key={i} user={user} />;
         })}
       </div>
     </div>
