@@ -1,21 +1,21 @@
-import { useEffect, useState } from 'react';
-import styles from '../styles/Toast.module.css';
+import { useEffect, useState } from "react";
+import styles from "../styles/Toast.module.css";
 type ToastProps = {
   isShow: boolean;
   text: string;
   onClose: () => void;
-  type?: 'negative' | 'positive';
+  type?: "negative" | "positive";
 };
 
 export const Toast = ({
   isShow,
   text,
   onClose,
-  type = 'positive',
+  type = "positive",
 }: ToastProps) => {
   const [isLifeTimeLeft, setIsLifeTimeLeft] = useState(true);
   const containerColor =
-    type === 'positive'
+    type === "positive"
       ? styles.positive_container_color
       : styles.negative_container_color;
   useEffect(() => {
@@ -27,10 +27,7 @@ export const Toast = ({
     return () => {
       clearTimeout(id);
     };
-  }, [isShow, onClose]);
-  if (!isShow || !isLifeTimeLeft) {
-    return <></>;
-  }
+  }, [onClose]);
 
   return (
     <div className={`${styles.container} ${containerColor}`}>
