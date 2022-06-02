@@ -69,12 +69,14 @@ const UserRegister = () => {
         <CheckCircleIcon className={styles.button_icon} />
         ユーザー名登録
       </PrimaryButton>
-      <Toast
-        isShow={isToastShow}
-        text={"ユーザーネームを入力してください"}
-        onClose={() => setIsToastShow(false)}
-        type={"negative"}
-      />
+      {isToastShow && (
+        <Toast
+          isShow={isToastShow}
+          text={"ユーザーネームを入力してください"}
+          onClose={() => setIsToastShow(false)}
+          type={"negative"}
+        />
+      )}
     </div>
   );
 };
