@@ -13,21 +13,19 @@ export const Toast = ({
   onClose,
   type = "positive",
 }: ToastProps) => {
-  const [isLifeTimeLeft, setIsLifeTimeLeft] = useState(true);
   const containerColor =
     type === "positive"
       ? styles.positive_container_color
       : styles.negative_container_color;
   useEffect(() => {
-    setIsLifeTimeLeft(true);
     const id = setTimeout(() => {
-      setIsLifeTimeLeft(false);
       onClose();
     }, 2000);
     return () => {
       clearTimeout(id);
     };
-  }, [onClose]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className={`${styles.container} ${containerColor}`}>
