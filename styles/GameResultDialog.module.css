@@ -15,14 +15,13 @@
 
 .dialog {
   background-color: #fff;
-  height: 240px;
   width: 420px;
   border-radius: 16px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   gap: 24px;
-  padding: 16px;
+  padding: 24px;
 }
 
 .inner_container {
