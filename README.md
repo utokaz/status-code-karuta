@@ -28,8 +28,8 @@ yarn dev
 
     <hr />
 
-<img src="./docs/img/sample005.PNG" alt="sample005">
-<img src="./docs/img/sample006.PNG" alt="sample006">
+<img src="./docs/img/sample005.png" width="720px" alt="sample005">
+<img src="./docs/img/sample006.png" width="720px" alt="sample006">
 
 ## Technology used
 
